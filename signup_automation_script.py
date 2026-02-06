@@ -15,24 +15,23 @@ driver.get("https://authorized-partner.vercel.app/")
 print("Home page opened")
 time.sleep(5)
 
-driver.find_element(By.LINK_TEXT, "Get Started").click()
-print("Clicked Get Started")
+driver.find_element(By.XPATH, "//a[@href='/login']").click()
+print("Clicked Login")
 time.sleep(5)
 
-driver.get("https://authorized-partner.vercel.app/register")
-print("Opened Register page directly")
+driver.find_element(By.XPATH, "//a[text()='Sign Up']").click()
+print("Clicked Sign Up")
 time.sleep(5)
 
-terms_element = driver.find_element(
-    By.XPATH, "//*[contains(text(),'I agree')]"
-)
+print("Opened Register page")
+time.sleep(5)
+
+terms_element = driver.find_element(By.XPATH, "//*[contains(text(),'I agree')]")
 driver.execute_script("arguments[0].click();", terms_element)
 print("Terms accepted")
 time.sleep(3)
 
-driver.find_element(
-    By.XPATH, "//button[contains(text(),'Continue')]"
-).click()
+driver.find_element(By.XPATH, "//button[contains(text(),'Continue')]").click()
 print("Clicked Continue")
 time.sleep(5)
 
@@ -40,9 +39,7 @@ print("Reached 'Set up your Account' page")
 
 wait = WebDriverWait(driver, 20)
 
-all_inputs = wait.until(
-    EC.presence_of_all_elements_located((By.XPATH, "//input[not(@type='hidden')]"))
-)
+all_inputs = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//input[not(@type='hidden')]")))
 
 all_inputs[0].send_keys("Test")                     # First Name
 all_inputs[1].send_keys("User")                     # Last Name
@@ -55,11 +52,9 @@ driver.find_element(By.NAME, "confirmPassword").send_keys("Test@1234")
 print("Account details filled")
 time.sleep(5)
 
-driver.find_element(
-    By.XPATH, "//button[contains(text(),'Next')]"
-).click()
+driver.find_element( By.XPATH, "//button[contains(text(),'Next')]").click()
 
-print("Stop at Email Verification")
+print("Reached at Email Verification")
 
 # NOTE:
 # Automation stops here because email verification (OTP) requires access to a real email inbox.

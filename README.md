@@ -24,30 +24,27 @@ qa-signup-automation/
 The automation script performs the following steps:
 1. Chrome opened
 2. Home page opened
-3. Clicked Get Started
-4. Opened Register page directly
-5. Terms accepted
-6. Clicked Continue
-7. Reached Set up your Account page
-8. Account details filled
+3. Clicked Login
+4. Then Clicked Sign Up
+5. Opened Register page directly
+6. Terms of Services and Privacy Policy accepted
+7. Clicked Continue
+8. Reached Set up your Account page
+9. Account details filled
    - First Name
    - Last Name
    - Email
    - Phone Number
    - Password
    - Confirm Password
-9. Stop at Email Verification
+10. Reached at Email Verification and Stop at there
 
 
 ## OTP Verification Note
-Email verification (OTP) is not automated because:
- OTP is sent to a real email inbox
- Email access is required
- This is outside the scope of UI automation
+Email verification (OTP) is not automated because OTP is sent to a real email inbox, email access is required
 
 ## Prerequisites
  Python 3.x installed
- Google Chrome browser installed
 
 
 ## How to Run the Script
