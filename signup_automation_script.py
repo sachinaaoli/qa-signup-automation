@@ -1,0 +1,83 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+print("Starting script...")
+
+# Open Chrome
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+print("Chrome opened")
+
+# Open home page
+driver.get("https://authorized-partner.vercel.app/")
+print("Home page opened")
+time.sleep(5)
+
+# Click Get Started
+driver.find_element(By.LINK_TEXT, "Get Started").click()
+print("Clicked Get Started")
+time.sleep(5)
+
+# Open Register page directly
+driver.get("https://authorized-partner.vercel.app/register")
+print("Opened Register page directly")
+time.sleep(5)
+
+# Accept Terms using JavaScript
+terms_element = driver.find_element(
+    By.XPATH, "//*[contains(text(),'I agree')]"
+)
+driver.execute_script("arguments[0].click();", terms_element)
+print("Terms accepted")
+time.sleep(3)
+
+# Click Continue
+driver.find_element(
+    By.XPATH, "//button[contains(text(),'Continue')]"
+).click()
+print("Clicked Continue")
+time.sleep(5)
+
+print("Reached 'Set up your Account' page")
+
+# -------------------------------
+# Fill Step 1: Account details
+# -------------------------------
+
+wait = WebDriverWait(driver, 20)
+
+# Get only visible input fields
+all_inputs = wait.until(
+    EC.presence_of_all_elements_located((By.XPATH, "//input[not(@type='hidden')]"))
+)
+
+# Fill fields by order (based on current UI)
+all_inputs[0].send_keys("Test")                     # First Name
+all_inputs[1].send_keys("User")                     # Last Name
+all_inputs[2].send_keys("testuser123@example.com")  # Email
+all_inputs[3].send_keys("9855050277")               # Phone
+
+driver.find_element(By.NAME, "password").send_keys("Test@1234")
+driver.find_element(By.NAME, "confirmPassword").send_keys("Test@1234")
+
+print("Account details filled")
+time.sleep(5)
+
+# Click Next (ONLY ONCE)
+driver.find_element(
+    By.XPATH, "//button[contains(text(),'Next')]"
+).click()
+
+print("Stop at Email Verification")
+
+# NOTE:
+# Automation stops here because email verification (OTP) requires access to a real email inbox.
+# This step is intentionally not automated.
+
+time.sleep(120)
+
+driver.quit()
