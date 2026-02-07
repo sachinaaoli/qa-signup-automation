@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-print("Starting script...")
+print("Starting...")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 print("Chrome opened")
