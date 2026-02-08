@@ -1,8 +1,6 @@
 ## Project Overview
 This project automates the signup process of the Authorized Partner portal using Selenium with Python.
 
-The automation covers the complete signup flow up to the email verification (OTP) step.
-
 
 ## Tools & Technologies Used
   Programming Language: Python
@@ -40,8 +38,6 @@ The automation script performs the following steps:
 10. Reached at Email Verification and Stop at there
 
 
-## OTP Verification Note
-Email verification (OTP) is not automated because OTP is sent to a real email inbox, email access is required
 
 ## Prerequisites
  Python 3.x installed
@@ -61,4 +57,3 @@ Email verification (OTP) is not automated because OTP is sent to a real email in
   Script stops at Email Verification page
   Browser closes after a delay in furture stepd
 
-**QA Intern Task**
