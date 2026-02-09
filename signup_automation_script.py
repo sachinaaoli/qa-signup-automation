@@ -27,10 +27,10 @@ driver.find_element(By.XPATH, "//button[contains(text(),'Continue')]").click()
 print("Fill user details")
 wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Enter Your First Name']"))).send_keys("QA")
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Last Name']").send_keys("Test")
-driver.find_element(By.XPATH, "//input[@type='email']").send_keys("testuser1@mailinator.com")
-driver.find_element(By.XPATH, "//input[contains(@placeholder, '00-')]").send_keys("9811100111")
-driver.find_element(By.NAME, "password").send_keys("QaTest#91")
-driver.find_element(By.NAME, "confirmPassword").send_keys("QaTest#91")
+driver.find_element(By.XPATH, "//input[@type='email']").send_keys("testusers1@mailinator.com")
+driver.find_element(By.XPATH, "//input[contains(@placeholder, '00-')]").send_keys("9855500111")
+driver.find_element(By.NAME, "password").send_keys("QaTest@1")
+driver.find_element(By.NAME, "confirmPassword").send_keys("QaTest@1")
 print("Form filled")
 
 driver.find_element(By.XPATH, "//button[contains(text(),'Next')]").click()
@@ -42,7 +42,7 @@ print("OTP page fully loaded")
 driver.execute_script("window.open('');")
 driver.switch_to.window(driver.window_handles[1])
 
-driver.get("https://www.mailinator.com/v4/public/inboxes.jsp?to=testuser1")
+driver.get("https://www.mailinator.com/v4/public/inboxes.jsp?to=testusers1")
 
 time.sleep(5)
 
@@ -75,9 +75,9 @@ print("OTP verified successfully")
 
 print("Filling Agency Details")
 
-wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Enter Agency Name']"))).send_keys("Sachi QA Solutions")
+wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Enter Agency Name']"))).send_keys(" Vrit Technologies")
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Role in Agency']").send_keys("QA")
-driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Agency Email Address']").send_keys("agency.sachi@mailinator.com")
+driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Agency Email Address']").send_keys("vrit.tech@mailinator.com")
 driver.find_element(By.XPATH, "//input[contains(@placeholder,'Agency Website')]").send_keys("www.vrittechnologies.com")
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Agency Address']").send_keys("Kathmandu, Nepal")
 
@@ -88,7 +88,7 @@ wait.until(EC.element_to_be_clickable((By.XPATH, " //div[@role='option'][1]"))).
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Next')]"))).click()
 
 print("Agency details submitted")
-print("Filling Professional Experience...")
+print("Filling Professional Experience")
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Select Your Experience Level')]"))).click()
 time.sleep(3)
 wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@role='option'][1]"))).click()
