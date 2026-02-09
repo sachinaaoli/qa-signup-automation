@@ -27,8 +27,8 @@ driver.find_element(By.XPATH, "//button[contains(text(),'Continue')]").click()
 print("Fill user details")
 wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Enter Your First Name']"))).send_keys("QA")
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Last Name']").send_keys("Test")
-driver.find_element(By.XPATH, "//input[@type='email']").send_keys("testusers1@mailinator.com")
-driver.find_element(By.XPATH, "//input[contains(@placeholder, '00-')]").send_keys("9855500111")
+driver.find_element(By.XPATH, "//input[@type='email']").send_keys("testusers7@mailinator.com")
+driver.find_element(By.XPATH, "//input[contains(@placeholder, '00-')]").send_keys("9855506711")
 driver.find_element(By.NAME, "password").send_keys("QaTest@1")
 driver.find_element(By.NAME, "confirmPassword").send_keys("QaTest@1")
 print("Form filled")
@@ -42,7 +42,7 @@ print("OTP page fully loaded")
 driver.execute_script("window.open('');")
 driver.switch_to.window(driver.window_handles[1])
 
-driver.get("https://www.mailinator.com/v4/public/inboxes.jsp?to=testusers1")
+driver.get("https://www.mailinator.com/v4/public/inboxes.jsp?to=testusers7")
 
 time.sleep(5)
 
@@ -80,13 +80,12 @@ driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Role in Agency']
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Agency Email Address']").send_keys("vrit.tech@mailinator.com")
 driver.find_element(By.XPATH, "//input[contains(@placeholder,'Agency Website')]").send_keys("www.vrittechnologies.com")
 driver.find_element(By.XPATH, "//input[@placeholder='Enter Your Agency Address']").send_keys("Kathmandu, Nepal")
-
-wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Select Your Region of Operation')]"))).click()
-time.sleep(3)
-wait.until(EC.element_to_be_clickable((By.XPATH, " //div[@role='option'][1]"))).click()
+wait.until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'Select Your Region of Operation')]"))).click()
+time.sleep(2) 
+wait.until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(),'Australia')]"))).click()
+print("Region selected")
 
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Next')]"))).click()
-
 print("Agency details submitted")
 print("Filling Professional Experience")
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Select Your Experience Level')]"))).click()
@@ -94,21 +93,23 @@ time.sleep(3)
 wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@role='option'][1]"))).click()
 
 driver.find_element(By.NAME, "success_metrics").send_keys("90")
-driver.find_element(By.NAME, "focus_area").send_keys("Undergraduate admissions to Canada")
+driver.find_element(By.NAME, "focus_area").send_keys("Undergraduate admissions to Aus")
 driver.find_element(By.NAME, "number_of_students_recruited_annually").send_keys("50")
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@role='checkbox']"))).click()
 
+wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Next')]"))).click()
 print("Professional Experience filled")
 
 print("Filling Verification & Preferences")
 
 driver.find_element(By.NAME, "business_registration_number").send_keys("123456789")
-
+time.sleep(3)
 driver.find_element(By.XPATH, "//span[contains(text(),'Select Your Preferred Countries')]").click()
 wait.until(EC.element_to_be_clickable((By.XPATH, "//li[1]"))).click()
+time.sleep(3)
 
 driver.find_element(By.XPATH, "//button[@role='checkbox']").click()
-driver.find_element(By.NAME, "certification_details").send_keys("ICEF Certified Education Agent")
+driver.find_element(By.NAME, "certification_details").send_keys("Certification Education")
 
 file_inputs = driver.find_elements(By.XPATH, "//input[@type='file']")
 file_inputs[0].send_keys(r"C:\Users\sachi\Documents\company_registration.pdf")
