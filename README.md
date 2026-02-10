@@ -39,8 +39,8 @@ python signup_automation_script.py
 ## Test Data Used
 The script uses the following hardcoded test data. You can change these inside the script if needed.
 * Email Service: Mailinator
-* Email Address: testusers1@mailinator.com
+* Email Address: testusers90@mailinator.com
 * Password: QaTest@1
-* Phone: 9855500111
+* Phone: 9855599111
 
  ## If you find problem in  email verification and phone number, please change the email or phone number in code.
